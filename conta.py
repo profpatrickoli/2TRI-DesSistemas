@@ -1,10 +1,14 @@
+import random
 class Conta:
     # método construtor
-    def __init__(self, titular, agencia, numero):
+    def __init__(self, titular, agencia, numero, cpf):
         self.__titular = titular
         self.__agencia = agencia
-        self.__numero = numero
+        self.__numero = f"{random.randint(1000, 9999)}-{random.randint(1,9)}"
+        self.__cpf = cpf
         self.__saldo = 0
+        self.__senha = random.randint(100000, 999999)
+        self.__chavepix = []
     
     #encapsulamento (getters e setters)
     @property
@@ -20,8 +24,18 @@ class Conta:
     def numero(self):
         return self.__numero
     @property
+    def cpf(self):
+        return self.__cpf
+    @property
     def saldo(self):
         return self.__saldo
+    @property
+    def chavepix(self):
+        return self.__chavepix
+    @property
+    def senha(self):
+        return self.__senha
+    
 
     # métodos da classe
     def extrato(self):
